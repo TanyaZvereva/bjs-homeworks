@@ -1,14 +1,25 @@
 function getAnimalSound(animal) {
-    // код для задачи №1 писать здесь
-    // return animalSound;
+    let sound = animal.sound
+    if (animal === 'undefined') {
+        return null
+    } else {
+        return sound
+    }
 }
 
 function getAverageMark(marks) {
-    // код для задачи №2 писать здесь
-    // return averageMark
+    const reducer = (accumulator, currentValue) => Number(accumulator) + Number(currentValue)
+    const averageMark = marks.reduce(reducer) / marks.length
+    const roundedAverage = Math.floor(averageMark)
+    return roundedAverage
 }
 
 function checkBirthday(birthday) {
-    // код для задачи №3 писать здесь
-    // return verdict
+    const now = +new Date()
+    const data = +new Date(birthday)
+    const diff = now - data
+    const year = +(new Date().getFullYear() - 2019)
+    const age = diff / (364.25 * 24 * 60 * 60 * 1000)
+
+    return age >= 18
 }
